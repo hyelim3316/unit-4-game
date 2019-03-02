@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Fashion Collector!</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/javascript/game.js">
+
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- JQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+
+<body>
+<div class=wrapper>
+    <header>
+        <h1>Fashion Style Collector</h1>
+    </header>
+   
+
+        
+        <div class=intro>
+            <h4>&lt;Instruction&gt;</h3>
+            You will be given a random number at the start of the game. <br>
+            There are four fashion style below. By clicking on a fasion style you will add a specifie amount of points to your totla score goes above the random number.<br>
+            The value of each fasion style is hidden from you until you click on it. <br>
+            Each time when the game starts, the game will charge the value of each fashion style.
+        </div>
+
+    <section class=target>  Target score
+        <aside id=targetscore>
+        </aside>
+    </section>
+
+    <section class=wins>  
+            <div id=win> Wins
+            </div>
+            <div id=lose> Loses
+            </div>
+    </section>
+
+    <div class=imgs>
+        <img id=img1 src="assets/images/fashion1.jpeg" width="20%">
+        <img id=img2 src="assets/images/fashion2.jpeg" width="20%">
+        <img id=img3 src="assets/images/fashion3.jpeg" width="20%">
+        <img id=img4 src="assets/images/fashion4.jpeg" width="20%">
+    </div>
+
+    <div class=point>Points you got <br>
+        <section id=got>NOW<span id=now></span>
+        </section>
+
+
+    </div>
+
+    </div>
+
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script type="text/javascript">
+
+//Target Score
+
+var targetscore = Math.floor((Math.random() * 120) + 19);
+
+$("#targetscore").text(targetscore);
+
+var counter = 0;
+
+//Image Values
+for (var i=0; i<4; i++) {
+    var numberOption = Math.floor((Math.random() * 10) + 1);
+    console.log(numberOption);
+
+    var images = $("<imgs>");
+    images.attr("data-imgvalue", numberOption[i]);
+    $(".imgs").append(images);
+}
+
+$(".imgs").on("click", function() {
+    console.log($(this));
+
+    var fashionValue = ($(this).attr("data-imgvalue"));
+    fashionValue = parseInt(fashionValue);
+    counter += fashionValue;
+
+   var now = counter;
+   $("#now").text(counter);
+
+    if (counter===targetscore) {
+        var winCounter = 0;
+    }
+
+    else if (counter >= targetscore) {
+        var loseCounter = 0;
+    }
+
+});
+
+
+</script>
+
+</body>
+
+</html>
