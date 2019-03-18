@@ -86,12 +86,12 @@ width: 65%;
       text-align: left;
   }
 
-  .imgs {
-      float: left;
+  .fashion {
+      display: block;
   }
 
-  #img1, #img2, #img3, #img4 {
-      margin: 10px;
+  #glass, #cart, #coke, #pink {
+      margin: 5px;
       border: 2px solid #333;
   }
 
